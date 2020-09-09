@@ -3,21 +3,24 @@ var toDoCount = 0;
 function ToDoAdd(){
 	var theDiv = document.getElementById("toDoList");
 	var inputValue = document.getElementById("tinput").value;
-	const toDoDiv = document.createElement('div');
 
-  	toDoDiv.className = 'toDoDiv';
-  	toDoDiv.id = 'toDo' + ++toDoCount;
+  if(inputValue != ''){
+    const toDoDiv = document.createElement('div');
 
-  	toDoDiv.innerHTML =
-  	`<div class="toDoText">`+inputValue+`</div>`+
-  	`
-  		<button class="toDoBtn" onclick="ToDoRemove(this)">Remove</button>
-		<button class="toDoBtn" onclick="ToDoDone(this)">Done</button>
+    	toDoDiv.className = 'toDoDiv';
+    	toDoDiv.id = 'toDo' + ++toDoCount;
 
-  	`;
+    	toDoDiv.innerHTML =
+    	`<div class="toDoText">`+inputValue+`</div>`+
+    	`
+    		<button class="toDoBtn" onclick="ToDoRemove(this)">Remove</button>
+  		<button class="toDoBtn" onclick="ToDoDone(this)">Done</button>
 
-  	document.getElementById("tinput").value = "";
-	theDiv.appendChild(toDoDiv);
+    	`;
+
+    	document.getElementById("tinput").value = "";
+  	theDiv.appendChild(toDoDiv);
+  }
 }
 
 function ToDoDone(element){
